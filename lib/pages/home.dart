@@ -3,8 +3,8 @@ import 'package:instagram_ui/utils/bubble_stories.dart';
 import 'package:instagram_ui/utils/user_posts.dart';
 
 class UserHome extends StatelessWidget {
-  final int sms_number;
-  UserHome({Key? key, required this.sms_number}) : super(key: key);
+  final int smsNumber;
+  UserHome({Key? key, required this.smsNumber}) : super(key: key);
   final List people = [
     'john',
     'prince',
@@ -40,14 +40,14 @@ class UserHome extends StatelessWidget {
                     child: Container(
                       width: 18,
                       height: 18,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.red,
                         shape: BoxShape.circle
                       ),
                       child: Center(
                         child: Text(
-                            '$sms_number',
-                            style: TextStyle(fontSize: 10),
+                            '$smsNumber',
+                            style: const TextStyle(fontSize: 10),
                             textAlign: TextAlign.center
                         ),
                       ),
@@ -56,14 +56,14 @@ class UserHome extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
         ],
-        actionsIconTheme: IconThemeData(color: Colors.black),
+        actionsIconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Column(
         children: [
           //STORIES
-          Container(
+          SizedBox(
             height: 105,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,

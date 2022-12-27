@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
-class UserPosts extends StatelessWidget {
+class UserPosts extends StatefulWidget {
   final String name;
+
   const UserPosts({Key? key, required this.name}) : super(key: key);
+
+  @override
+  State<UserPosts> createState() => _UserPostsState();
+}
+
+class _UserPostsState extends State<UserPosts> {
+  bool likePublication = false;
+  bool addToBookmark = false;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +19,7 @@ class UserPosts extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-            padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -19,25 +28,22 @@ class UserPosts extends StatelessWidget {
                   Container(
                       width: 40,
                       height: 40,
-                      decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.red[400]),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: Colors.red[400]),
                       child: Padding(
-                        padding: EdgeInsets.all(3),
+                        padding: const EdgeInsets.all(3),
                         child: Container(
                           width: 38,
                           height: 38,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle, color: Colors.grey[400]),
                         ),
-                      )
-                  ),
+                      )),
                   const SizedBox(width: 10),
                   Text(
-                    name,
+                    widget.name,
                     style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold
-                    ),
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -47,7 +53,8 @@ class UserPosts extends StatelessWidget {
         ),
         //POSTS
         InkWell(
-          onDoubleTap: (){
+          onDoubleTap: () {
+            _likePublication(likePublication);
           },
           child: Container(
             height: 400,
@@ -57,35 +64,50 @@ class UserPosts extends StatelessWidget {
               //borderRadius: BorderRadius.circular(20)
             ),
           ),
-        ) ,
+        ),
         //commentaire et consort
         Padding(
-            padding: EdgeInsets.all(16),
+          padding: EdgeInsets.only(left: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                children: const [
-                  Icon(Icons.favorite),
-                  SizedBox(width: 10),
-                  Icon(Icons.mode_comment_outlined),
-                  SizedBox(width: 10),
-                  Icon(Icons.share)
+                children: [
+                  (likePublication)
+                      ? const Icon(Icons.favorite)
+                      : const Icon(Icons.favorite_border),
+                  const SizedBox(width: 10),
+                  const Icon(Icons.mode_comment_outlined),
+                  const SizedBox(width: 10),
+                  const Icon(Icons.share)
                 ],
               ),
-              const Icon(Icons.bookmark)
+              IconButton(
+                  onPressed: () {
+                    _addToBookmark(addToBookmark);
+                  },
+                  splashColor: Colors.transparent,
+                  icon: (addToBookmark)
+                      ? const Icon(Icons.bookmark)
+                      : const Icon(Icons.bookmark_border)),
             ],
           ),
         ),
         //liké par
         Padding(
-            padding: const EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: Row(
             children: const [
               Text('Liked by '),
-              Text('houndjo', style: TextStyle(fontWeight: FontWeight.bold),),
-              Text(' and' ),
-              Text(' others', style: TextStyle(fontWeight: FontWeight.bold),),
+              Text(
+                'houndjo',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(' and'),
+              Text(
+                ' others',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ],
           ),
         ),
@@ -94,20 +116,27 @@ class UserPosts extends StatelessWidget {
           padding: const EdgeInsets.only(left: 16, top: 8),
           child: RichText(
               text: const TextSpan(
-                style: TextStyle(color: Colors.black),
-                children: [
-                  TextSpan(
-                      text: 'houndjo',
-                    style: TextStyle(fontWeight: FontWeight.bold)
-                  ),
-                  TextSpan(
-                      text: ' Jaime cette putain de belle vie'
-                  )
-                ]
-              )
-          ),
+                  style: TextStyle(color: Colors.black),
+                  children: [
+                TextSpan(
+                    text: 'houndjo',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: ' Jaime cette putain de belle vie')
+              ])),
         ),
       ],
     );
+  }
+
+  void _likePublication(bool value) {
+    setState(() {
+      likePublication = !value;
+    });
+  }
+
+  void _addToBookmark(bool value) {
+    setState(() {
+      addToBookmark = !value;
+    });
   }
 }

@@ -20,46 +20,21 @@ class UserAccount extends StatelessWidget {
             actions: [
               IconButton(
                   onPressed: () {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return Container(
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height / 2.3,
-                            child: Column(
-                              children: [
-                              _bottomModalBottomTitle('Créer'),
-                              _bottomModalBottomChild(
-                                  Icons.emergency_recording_outlined, 'Reel'),
-                              _bottomModalBottomChild(
-                                  Icons.grid_on_rounded, 'Publication'),
-                              _bottomModalBottomChild(
-                                  Icons.add_circle_outline, 'Story'),
-                              _bottomModalBottomChild(
-                                  Icons.favorite_border, 'Story à la une'),
-                              _bottomModalBottomChild(
-                                  Icons.radar_outlined, 'En direct'),
-                              _bottomModalBottomChild(
-                                  Icons.map_outlined, 'Guide'),
-                              ],
-                            ),
-                          );
-                        });
+                    test(context);
                   },
-                  icon: Icon(
+                  splashColor: Colors.transparent,
+                  icon: const Icon(
                     Icons.add_box_outlined,
                     color: Colors.black,
                   )),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
-              Icon(
+              const Icon(
                 Icons.menu,
                 color: Colors.black,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
             ],
@@ -132,15 +107,15 @@ class UserAccount extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(7)),
-                          child: const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(2),
-                                child: Text('Modifier profil'),
-                              )),
-                        )),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(7)),
+                      child: const Center(
+                          child: Padding(
+                        padding: EdgeInsets.all(2),
+                        child: Text('Modifier profil'),
+                      )),
+                    )),
                     SizedBox(
                       width: 5,
                     ),
@@ -207,14 +182,40 @@ class UserAccount extends StatelessWidget {
     );
   }
 
+  void test(BuildContext context){
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: MediaQuery.of(context).size.height / 2.3,
+            child: Column(
+              children: [
+                _bottomModalBottomTitle('Créer'),
+                _bottomModalBottomChild(
+                    Icons.emergency_recording_outlined, 'Reel'),
+                _bottomModalBottomChild(
+                    Icons.grid_on_rounded, 'Publication'),
+                _bottomModalBottomChild(
+                    Icons.add_circle_outline, 'Story'),
+                _bottomModalBottomChild(
+                    Icons.favorite_border, 'Story à la une'),
+                _bottomModalBottomChild(
+                    Icons.radar_outlined, 'En direct'),
+                _bottomModalBottomChild(
+                    Icons.map_outlined, 'Guide'),
+              ],
+            ),
+          );
+        });
+  }
+
   Widget _bottomModalBottomTitle(String titre) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Center(
         child: Text(
           titre,
-          style:
-          const TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );

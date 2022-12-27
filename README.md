@@ -1,6 +1,6 @@
 # instagram_ui
 
-A new Flutter project.
+A small project to reproduce the Twitter interface
 
 ## Getting Started
 
