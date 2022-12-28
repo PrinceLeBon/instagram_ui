@@ -1,6 +1,6 @@
 # instagram_ui
 
-A small project to reproduce the Twitter interface
+A small project to reproduce the Instagram interface
 
 ## Getting Started
 
