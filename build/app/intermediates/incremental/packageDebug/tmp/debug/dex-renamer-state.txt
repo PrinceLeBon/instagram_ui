@@ -1,4 +1,4 @@
-#Tue Dec 27 20:28:13 WAT 2022
+#Wed Dec 28 23:05:55 WAT 2022
 base.0=/home/phantom/StudioProjects/instagram_ui/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

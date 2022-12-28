@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_ui/utils/option_posts.dart';
 
 class UserPosts extends StatefulWidget {
   final String name;
@@ -47,7 +48,10 @@ class _UserPostsState extends State<UserPosts> {
                   ),
                 ],
               ),
-              const Icon(Icons.keyboard_control_sharp)
+              IconButton(
+                  onPressed: _showOptions,
+                  splashColor: Colors.transparent,
+                  icon: const Icon(Icons.keyboard_control_sharp))
             ],
           ),
         ),
@@ -138,5 +142,13 @@ class _UserPostsState extends State<UserPosts> {
     setState(() {
       addToBookmark = !value;
     });
+  }
+
+  void _showOptions() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return const Option_Posts();
+        });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_ui/utils/explore_grid.dart';
+import 'package:instagram_ui/utils/showModalBottomChild.dart';
 import 'package:instagram_ui/utils/stored_stories.dart';
 
 class UserAccount extends StatelessWidget {
@@ -162,27 +163,7 @@ class UserAccount extends StatelessWidget {
         ));
   }
 
-  Widget _bottomModalBottomChild(IconData icon, String icondescription) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          children: [
-            Icon(icon),
-            Container(
-              width: 10,
-            ),
-            Expanded(child: Text(icondescription)),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void test(BuildContext context){
+  void test(BuildContext context) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
@@ -190,26 +171,29 @@ class UserAccount extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 2.3,
             child: Column(
               children: [
-                _bottomModalBottomTitle('Créer'),
-                _bottomModalBottomChild(
-                    Icons.emergency_recording_outlined, 'Reel'),
-                _bottomModalBottomChild(
-                    Icons.grid_on_rounded, 'Publication'),
-                _bottomModalBottomChild(
-                    Icons.add_circle_outline, 'Story'),
-                _bottomModalBottomChild(
-                    Icons.favorite_border, 'Story à la une'),
-                _bottomModalBottomChild(
-                    Icons.radar_outlined, 'En direct'),
-                _bottomModalBottomChild(
-                    Icons.map_outlined, 'Guide'),
+                _showModalBottomTitle('Créer'),
+                ShowModalBottomChild(
+                    icon: Icons.emergency_recording_outlined,
+                    icondescription: 'Reel'),
+                ShowModalBottomChild(
+                    icon: Icons.grid_on_rounded,
+                    icondescription: 'Publication'),
+                ShowModalBottomChild(
+                    icon: Icons.add_circle_outline, icondescription: 'Story'),
+                ShowModalBottomChild(
+                    icon: Icons.favorite_border,
+                    icondescription: 'Story à la une'),
+                ShowModalBottomChild(
+                    icon: Icons.radar_outlined, icondescription: 'En direct'),
+                ShowModalBottomChild(
+                    icon: Icons.map_outlined, icondescription: 'Guide'),
               ],
             ),
           );
         });
   }
 
-  Widget _bottomModalBottomTitle(String titre) {
+  Widget _showModalBottomTitle(String titre) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Center(
