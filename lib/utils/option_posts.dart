@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'showModalBottomChild.dart';
 
 class Option_Posts extends StatelessWidget {
@@ -7,28 +6,27 @@ class Option_Posts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height / 2.2,
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: _showModalBottomTitle(),
           ),
-          ShowModalBottomChild(
+          const ShowModalBottomChild(
               icon: Icons.person_add_disabled_outlined,
               icondescription: 'Ne plus suivre'),
-          ShowModalBottomChild(
+          const ShowModalBottomChild(
               icon: Icons.info_outline,
               icondescription: 'Pourquoi vous voyez cette publication'),
-          ShowModalBottomChild(
+          const ShowModalBottomChild(
               icon: Icons.hide_source, icondescription: 'Masquer'),
-          ShowModalBottomChild(
+          const ShowModalBottomChild(
               icon: Icons.account_circle_outlined,
               icondescription: 'A propos de ce compte'),
-          ShowModalBottomChild(
-              icon: Icons.add_alert_outlined,
-              icondescription: 'Signaler'),
+          const ShowModalBottomChild(
+              icon: Icons.add_alert_outlined, icondescription: 'Signaler'),
         ],
       ),
     );

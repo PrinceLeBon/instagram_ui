@@ -15,7 +15,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  void _navigateBottomNavBar(int index){
+
+  void _navigateBottomNavBar(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -25,35 +26,51 @@ class _HomePageState extends State<HomePage> {
   late final int sms_number;
   late final List<Widget> _children = [
     UserHome(smsNumber: sms_number),
-    UserSearch(),
-    UserReels(),
-    UserShop(),
-    UserAccount()
-    ];
+    const UserSearch(),
+    const UserReels(),
+    const UserShop(),
+    const UserAccount()
+  ];
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     sms_number = _Random();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _children[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.black,
+          type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           onTap: _navigateBottomNavBar,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home, size: 27), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.search, size: 27), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.add_box_outlined, size: 27,), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite, size: 27,), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.person, size: 27,), label: '')
-          ]
-      ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home, size: 27), label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.search, size: 27), label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.add_box_outlined,
+                  size: 27,
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.favorite,
+                  size: 27,
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  size: 27,
+                ),
+                label: '')
+          ]),
     );
   }
 }

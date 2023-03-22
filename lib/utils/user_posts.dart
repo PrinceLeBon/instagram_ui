@@ -98,10 +98,10 @@ class _UserPostsState extends State<UserPosts> {
           ),
         ),
         //liké par
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
+        const Padding(
+          padding: EdgeInsets.only(left: 16),
           child: Row(
-            children: const [
+            children: [
               Text('Liked by '),
               Text(
                 'houndjo',

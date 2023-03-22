@@ -64,13 +64,13 @@ class UserAccount extends StatelessWidget {
                                     color: Colors.grey[400]),
                               ),
                             )),
-                        Text('Prince Le Bon')
+                        const Text('Prince Le Bon')
                       ],
                     ),
-                    SizedBox(width: 10),
-                    Center(
+                    const SizedBox(width: 10),
+                    const Center(
                       child: Column(
-                        children: const [
+                        children: [
                           Text(
                             '1',
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -79,20 +79,20 @@ class UserAccount extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 20),
-                    Center(
+                    const SizedBox(width: 20),
+                    const Center(
                       child: Column(
-                        children: const [
+                        children: [
                           Text('1748',
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Text('Followers')
                         ],
                       ),
                     ),
-                    SizedBox(width: 20),
-                    Center(
+                    const SizedBox(width: 20),
+                    const Center(
                       child: Column(
-                        children: const [
+                        children: [
                           Text('843',
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Text('Suivi(e)s')
@@ -101,7 +101,7 @@ class UserAccount extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -117,7 +117,7 @@ class UserAccount extends StatelessWidget {
                         child: Text('Modifier profil'),
                       )),
                     )),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Container(
@@ -130,12 +130,12 @@ class UserAccount extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Stories a la une',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text('Conservez vos stories préférées sur votre profil'),
-                Container(
+                const Text('Conservez vos stories préférées sur votre profil'),
+                SizedBox(
                   height: 105,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -172,20 +172,20 @@ class UserAccount extends StatelessWidget {
             child: Column(
               children: [
                 _showModalBottomTitle('Créer'),
-                ShowModalBottomChild(
+                const ShowModalBottomChild(
                     icon: Icons.emergency_recording_outlined,
                     icondescription: 'Reel'),
-                ShowModalBottomChild(
+                const ShowModalBottomChild(
                     icon: Icons.grid_on_rounded,
                     icondescription: 'Publication'),
-                ShowModalBottomChild(
+                const ShowModalBottomChild(
                     icon: Icons.add_circle_outline, icondescription: 'Story'),
-                ShowModalBottomChild(
+                const ShowModalBottomChild(
                     icon: Icons.favorite_border,
                     icondescription: 'Story à la une'),
-                ShowModalBottomChild(
+                const ShowModalBottomChild(
                     icon: Icons.radar_outlined, icondescription: 'En direct'),
-                ShowModalBottomChild(
+                const ShowModalBottomChild(
                     icon: Icons.map_outlined, icondescription: 'Guide'),
               ],
             ),
