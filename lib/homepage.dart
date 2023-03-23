@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
           onTap: _navigateBottomNavBar,
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home, size: 27), label: ''),
+                icon: Icon(Icons.add, size: 27), label: ''),
             BottomNavigationBarItem(
                 icon: Icon(Icons.search, size: 27), label: ''),
             BottomNavigationBarItem(
