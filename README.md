@@ -22,6 +22,8 @@ social network
 None in particular, just browse the pages, see the different actions that the buttons trigger and
 enjoy the experience
 
+  > https://user-images.githubusercontent.com/102158487/227173746-087e0f9c-7c59-41b9-8841-b131ee750bf9.webm
+
 ## Known issues
 
 - None at this moment
