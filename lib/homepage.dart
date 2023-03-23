@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
 
   int _Random() => Random().nextInt(100);
   late final int sms_number;
-  late final int sms_number1;
   late final List<Widget> _children = [
     UserHome(smsNumber: sms_number),
     const UserSearch(),
