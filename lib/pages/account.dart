@@ -41,7 +41,7 @@ class UserAccount extends StatelessWidget {
             ],
           ),
           body: Padding(
-            padding: EdgeInsets.only(left: 10, right: 10),
+            padding: const EdgeInsets.only(left: 10, right: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -55,7 +55,7 @@ class UserAccount extends StatelessWidget {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle, color: Colors.red[400]),
                             child: Padding(
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               child: Container(
                                 width: 68,
                                 height: 68,
@@ -139,7 +139,7 @@ class UserAccount extends StatelessWidget {
                   height: 105,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 5,
+                      itemCount: 10,
                       itemBuilder: (context, index) {
                         return const StoredStories();
                       }),
@@ -167,7 +167,7 @@ class UserAccount extends StatelessWidget {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return Container(
+          return SizedBox(
             height: MediaQuery.of(context).size.height / 2.3,
             child: Column(
               children: [

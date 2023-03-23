@@ -58,26 +58,29 @@ class UserHome extends StatelessWidget {
         ],
         actionsIconTheme: const IconThemeData(color: Colors.black),
       ),
-      body: Column(
-        children: [
-          //STORIES
-          SizedBox(
-            height: 105,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: people.length,
-                itemBuilder: (context, index) {
-                  return BubbleStories(text: people[index]);
-                }),
-          ),
-          //POSTS
-          Expanded(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //STORIES
+            SizedBox(
+              height: 105,
               child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                   itemCount: people.length,
                   itemBuilder: (context, index) {
-                    return UserPosts(name: people[index]);
-                  }))
-        ],
+                    return BubbleStories(text: people[index]);
+                  }),
+            ),
+            //POSTS
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                itemCount: people.length,
+                itemBuilder: (context, index) {
+                  return UserPosts(name: people[index]);
+                })
+          ],
+        ),
       ),
     );
   }
