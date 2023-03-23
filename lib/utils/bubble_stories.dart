@@ -16,7 +16,7 @@ class BubbleStories extends StatelessWidget {
             decoration:
                 BoxDecoration(shape: BoxShape.circle, color: Colors.red[400]),
             child: Padding(
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
               child: Container(
                 width: 68,
                 height: 68,
@@ -25,6 +25,7 @@ class BubbleStories extends StatelessWidget {
               ),
             )
           ),
+          Container(height: 5),
           Text(text)
         ],
       ),

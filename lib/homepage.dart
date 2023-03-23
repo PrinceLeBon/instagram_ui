@@ -47,28 +47,56 @@ class _HomePageState extends State<HomePage> {
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           onTap: _navigateBottomNavBar,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home, size: 27), label: ''),
+                icon: (_selectedIndex == 0)
+                    ? SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/home.png"),
+                      )
+                    : SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/home1.png"),
+                      ),
+                label: ''),
             BottomNavigationBarItem(
-                icon: Icon(Icons.search, size: 27), label: ''),
+                icon: (_selectedIndex == 1)
+                    ? SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/search.png"),
+                      )
+                    : SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/search1.png"),
+                      ),
+                label: ''),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.add_box_outlined,
-                  size: 27,
+                icon: SizedBox(
+                  height: 27,
+                  child: Image.asset("assets/abb_box.png"),
                 ),
                 label: ''),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.favorite,
-                  size: 27,
-                ),
+                icon: (_selectedIndex == 3)
+                    ? SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/reel.png"),
+                      )
+                    : SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/reel1.png"),
+                      ),
                 label: ''),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                  size: 27,
-                ),
+                icon: (_selectedIndex == 4)
+                    ? SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/user.png"),
+                      )
+                    : SizedBox(
+                        height: 27,
+                        child: Image.asset("assets/user1.png"),
+                      ),
                 label: '')
           ]),
     );

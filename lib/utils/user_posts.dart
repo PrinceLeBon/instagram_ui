@@ -51,7 +51,10 @@ class _UserPostsState extends State<UserPosts> {
               IconButton(
                   onPressed: _showOptions,
                   splashColor: Colors.transparent,
-                  icon: const Icon(Icons.keyboard_control_sharp))
+                  icon: const Icon(
+                    Icons.keyboard_control_sharp,
+                    size: 30,
+                  ))
             ],
           ),
         ),
@@ -71,29 +74,50 @@ class _UserPostsState extends State<UserPosts> {
         ),
         //commentaire et consort
         Padding(
-          padding: EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  (likePublication)
-                      ? const Icon(Icons.favorite)
-                      : const Icon(Icons.favorite_border),
+                  InkWell(
+                    onTap: () {
+                      _likePublication(likePublication);
+                    },
+                    splashColor: Colors.grey,
+                    child: Container(
+                      height: 30,
+                      child: (likePublication)
+                          ? Image.asset("assets/like2.png")
+                          : Image.asset("assets/like1.png"),
+                    ),
+                  ),
                   const SizedBox(width: 10),
-                  const Icon(Icons.mode_comment_outlined),
+                  Container(
+                    height: 30,
+                    child: Image.asset("assets/comment.png"),
+                  ),
                   const SizedBox(width: 10),
-                  const Icon(Icons.share)
+                  Container(
+                    height: 23,
+                    child: Image.asset("assets/share.png"),
+                  )
                 ],
               ),
               IconButton(
                   onPressed: () {
                     _addToBookmark(addToBookmark);
                   },
-                  splashColor: Colors.transparent,
+                  splashColor: Colors.grey,
                   icon: (addToBookmark)
-                      ? const Icon(Icons.bookmark)
-                      : const Icon(Icons.bookmark_border)),
+                      ? Container(
+                          height: 27,
+                          child: Image.asset("assets/bookmark2.png"),
+                        )
+                      : Container(
+                          height: 27,
+                          child: Image.asset("assets/bookmark1.png"),
+                        )),
             ],
           ),
         ),
@@ -125,7 +149,9 @@ class _UserPostsState extends State<UserPosts> {
                 TextSpan(
                     text: 'houndjo',
                     style: TextStyle(fontWeight: FontWeight.bold)),
-                TextSpan(text: ' Jaime cette putain de belle vie')
+                TextSpan(
+                    text:
+                        ' Life is like a bicycle, you have to move forward to keep your balance.')
               ])),
         ),
       ],

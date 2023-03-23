@@ -30,12 +30,12 @@ class UserHome extends StatelessWidget {
             height: 100,
             child: Stack(
               children: [
-                const Positioned(
+                Positioned(
                     top: 15,
                     right: 5,
-                    child: Icon(
-                      Icons.sms_failed_outlined,
-                      size: 26,
+                    child: Container(
+                      height: 27,
+                      child: Image.asset("assets/sms.png"),
                     )),
                 Positioned(
                     right: 0,
@@ -63,7 +63,7 @@ class UserHome extends StatelessWidget {
           children: [
             //STORIES
             SizedBox(
-              height: 105,
+              height: 109,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: people.length,

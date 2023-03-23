@@ -14,26 +14,26 @@ class UserAccount extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
-            title: const Text(
-              'jeff houndjo',
-              style: TextStyle(color: Colors.black),
-            ),
+            title: const Text('jeff_houndjo',
+                style: TextStyle(color: Colors.black, fontSize: 25)),
             actions: [
               IconButton(
                   onPressed: () {
                     test(context);
                   },
                   splashColor: Colors.transparent,
-                  icon: const Icon(
-                    Icons.add_box_outlined,
-                    color: Colors.black,
+                  icon: SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset("assets/abb_box.png"),
                   )),
               const SizedBox(
                 width: 10,
               ),
-              const Icon(
-                Icons.menu,
-                color: Colors.black,
+              Container(
+                height: 25,
+                width: 25,
+                child: Image.asset("assets/menu1.png"),
               ),
               const SizedBox(
                 width: 10,
@@ -109,22 +109,41 @@ class UserAccount extends StatelessWidget {
                     Expanded(
                         child: Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(7)),
+                          borderRadius: BorderRadius.circular(7),
+                          color: Colors.grey[300]),
                       child: const Center(
                           child: Padding(
-                        padding: EdgeInsets.all(2),
-                        child: Text('Modifier profil'),
+                        padding: EdgeInsets.all(5),
+                        child: Text('Edit profile'),
+                      )),
+                    )),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                        child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7),
+                          color: Colors.grey[300]),
+                      child: const Center(
+                          child: Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Text('Share profil'),
                       )),
                     )),
                     const SizedBox(
                       width: 5,
                     ),
                     Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(7)),
-                        child: const Icon(Icons.person_add))
+                      height: 27,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7),
+                          color: Colors.grey[300]),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: Image.asset("assets/user_add.png"),
+                      ),
+                    )
                   ],
                 ),
                 const SizedBox(
