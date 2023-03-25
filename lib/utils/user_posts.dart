@@ -110,11 +110,11 @@ class _UserPostsState extends State<UserPosts> {
                   },
                   splashColor: Colors.grey,
                   icon: (addToBookmark)
-                      ? Container(
+                      ? SizedBox(
                           height: 27,
                           child: Image.asset("assets/bookmark2.png"),
                         )
-                      : Container(
+                      : SizedBox(
                           height: 27,
                           child: Image.asset("assets/bookmark1.png"),
                         )),
@@ -142,17 +142,27 @@ class _UserPostsState extends State<UserPosts> {
         //publication
         Padding(
           padding: const EdgeInsets.only(left: 16, top: 8),
-          child: RichText(
-              text: const TextSpan(
-                  style: TextStyle(color: Colors.black),
-                  children: [
-                TextSpan(
-                    text: 'houndjo',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                TextSpan(
-                    text:
-                        ' Life is like a bicycle, you have to move forward to keep your balance.')
-              ])),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                  text: const TextSpan(
+                      style: TextStyle(color: Colors.black),
+                      children: [
+                    TextSpan(
+                        text: 'houndjo',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text:
+                            ' Life is like a bicycle, you have to move forward to keep your balance.')
+                  ])),
+              Container(height: 5),
+              const Text('View all comments',
+                  style: TextStyle(color: Colors.grey)),
+              Container(height: 5),
+              const Text('22 hours ago', style: TextStyle(color: Colors.grey)),
+            ],
+          ),
         ),
       ],
     );

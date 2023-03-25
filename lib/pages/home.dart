@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_ui/globals.dart';
+import 'package:instagram_ui/homepage.dart';
 import 'package:instagram_ui/utils/bubble_stories.dart';
 import 'package:instagram_ui/utils/user_posts.dart';
 
-class UserHome extends StatelessWidget {
+class UserHome extends StatefulWidget {
   final int smsNumber;
 
   UserHome({Key? key, required this.smsNumber}) : super(key: key);
@@ -18,8 +21,14 @@ class UserHome extends StatelessWidget {
   ];
 
   @override
+  State<UserHome> createState() => _UserHomeState();
+}
+
+class _UserHomeState extends State<UserHome> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Colors.grey[800],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -33,9 +42,20 @@ class UserHome extends StatelessWidget {
                 Positioned(
                     top: 15,
                     right: 5,
-                    child: Container(
-                      height: 27,
-                      child: Image.asset("assets/sms.png"),
+                    child: InkWell(
+                      child: Container(
+                        height: 27,
+                        child: Image.asset("assets/sms.png"),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          bool v = mode;
+                          mode = !v;
+                          if (kDebugMode) {
+                            print(mode);
+                          }
+                        });
+                      },
                     )),
                 Positioned(
                     right: 0,
@@ -46,7 +66,7 @@ class UserHome extends StatelessWidget {
                       decoration: const BoxDecoration(
                           color: Colors.red, shape: BoxShape.circle),
                       child: Center(
-                        child: Text('$smsNumber',
+                        child: Text('${widget.smsNumber}',
                             style: const TextStyle(fontSize: 10),
                             textAlign: TextAlign.center),
                       ),
@@ -66,18 +86,18 @@ class UserHome extends StatelessWidget {
               height: 109,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: people.length,
+                  itemCount: widget.people.length,
                   itemBuilder: (context, index) {
-                    return BubbleStories(text: people[index]);
+                    return BubbleStories(text: widget.people[index]);
                   }),
             ),
             //POSTS
             ListView.builder(
                 shrinkWrap: true,
                 physics: const ClampingScrollPhysics(),
-                itemCount: people.length,
+                itemCount: widget.people.length,
                 itemBuilder: (context, index) {
-                  return UserPosts(name: people[index]);
+                  return UserPosts(name: widget.people[index]);
                 })
           ],
         ),
